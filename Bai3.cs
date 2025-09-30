@@ -11,16 +11,20 @@ namespace Test
         public static void Run()
         {
             List<string> danhSach = new List<string>();
-            string ten;
+            string ten = string.Empty;
             Console.WriteLine("Nhap ten sinh vien (go end de ket thuc): ");
 
-            ten = Console.ReadLine()!;
+            ten = Console.ReadLine();
             while (ten != "end")
             {
-                danhSach.Add(ten);
-                ten = Console.ReadLine()!;
+                //if (ten != string.Empty)
+                {
+                    danhSach.Add(ten);
+                }
+                
+                ten = Console.ReadLine();
             }
-
+            
             Console.WriteLine("\nDanh sach sinh vien: ");
             for (int i = 0; i < danhSach.Count; i++)
             {
@@ -28,11 +32,16 @@ namespace Test
             }
 
             string tenDaiNhat = danhSach[0];
+            int doDaiTenDaiNhat = tenDaiNhat.Length;
             for (int i = 1; i < danhSach.Count; i++)
             {
-                if(danhSach[i].Length > tenDaiNhat.Length)
+                int doDaiTenHienTai = danhSach[i].Length; // nguyen van minh // length = 15
+                Console.WriteLine("ten " + danhSach[i] + " do dai " + doDaiTenHienTai);
+
+                if (doDaiTenHienTai > doDaiTenDaiNhat)
                 {
                     tenDaiNhat = danhSach[i];
+                    doDaiTenDaiNhat = tenDaiNhat.Length;
                 }
             }
             Console.WriteLine("\nTen sinh vien dai nhat: " + tenDaiNhat);

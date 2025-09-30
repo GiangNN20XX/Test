@@ -58,13 +58,19 @@ namespace Test
                 string name = Console.ReadLine()!;
                 Console.Write("Score: ");
                 double score = double.Parse(Console.ReadLine()!);
-
-                students.Add(new Student(id, name, score));
+                Student student = new Student(id, name, score);
+                students.Add(student);
             }
             Console.WriteLine("\nDanh sach sinh vien: ");
-            foreach (var s in students)
+
+            //for (int i = 0; i < students.Count; i++) {
+            //    Student student = students[i];
+            //    student.Display();
+            //}
+
+            foreach (Student student in students)
             {
-                s.Display();
+                student.Display();
             }
         }
     }

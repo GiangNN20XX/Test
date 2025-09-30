@@ -27,11 +27,11 @@ namespace Test
             Console.WriteLine("\nNhap ma sinh vien can tim: ");
             string timMa = Console.ReadLine()!;
 
-            bool tonTai = sinhVien.ContainsKey(timMa);
+            bool tonTai = sinhVien.TryGetValue(timMa, out string tenSv);
+
             if (tonTai)
             {
-                string ten = sinhVien[timMa];
-                Console.WriteLine("Ten sinh vien: " + ten);
+                Console.WriteLine("Ten sinh vien: " + tenSv);
             }
             else
                 Console.WriteLine("Khong tim thay");
